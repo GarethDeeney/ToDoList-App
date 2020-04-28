@@ -1,0 +1,52 @@
+Mongoose Schema
+
+const <schemaName> = {
+  <fieldName> : <fieldDataType>,
+}
+
+Example Schema:
+
+var kittySchema = new mongoose.Schema({
+  name: String
+});
+
+*******************************************************
+
+Mongoose Model
+
+const <ModelName> = mongoose.model(<
+  <"SingularCollectionName">,
+  <schemaName>
+)
+
+Example Model:
+
+var Kitten = mongoose.model('Kitten', kittySchema);
+
+******************************************************
+Mongoose Document
+
+const <constantName> = new <ModelName>({
+    <fieldName> : <fieldData>
+    .... - can add others, separate with comma.
+
+
+});
+
+******************************************************
+
+Mongoose Insert Many
+
+<ModelName>.insertMany(<documentArray>,function(error){
+  // logs error
+
+});
+
+******************************************************
+
+Model find
+
+<ModelName>.find({conditions},function(err,results){
+
+/// docs
+});
