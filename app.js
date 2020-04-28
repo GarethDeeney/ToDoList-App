@@ -14,8 +14,6 @@ app.use(express.static("public"));
 
 app.set("view engine", "ejs");
 
-
-
 mongoose.connect('mongodb+srv://gareth-admin:Atlas-admin@cluster0-kzdg1.mongodb.net/todolistDB', {
   useNewUrlParser: true
 });
@@ -93,7 +91,10 @@ app.post("/", function(req, res) {
   res.redirect("/");
 });
 
-
-app.listen(3000, function() {
-  console.log("Server Hosted on Port 3000");
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port, function() {
+  console.log("Server has started successfully");
 });
